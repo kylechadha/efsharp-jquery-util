@@ -6,17 +6,26 @@
 
     $scope.getSiteInfo = function() {
 
+      $scope.errorMessage = '';
+
       if ($scope.siteURL) {
 
-        searchFactory.checkVersion($scope.siteURL, function(error, data) {
-          if (!error) {
+        if (!$scope.siteURL.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
+          $scope.errorMessage = 'Invalid URL!';
+        } else {
 
-          }
-        });
+          searchFactory.checkVersion($scope.siteURL, function(error, data) {
+            if (!error) {
 
-        $scope.siteURL = '';
+            }
+          });
+
+          $scope.siteURL = '';
+
+        }
 
       }
+
 
     }
 
