@@ -7,9 +7,8 @@
     "morgan": "~1.0.0",
     "body-parser": "~1.0.0",
     "method-override": "~1.0.0",
-    "bower": "latest",
-    "request": "latest",
-    "cheerio": "latest"
+    "bower": "~1.3.12",
+    "phantom": "~0.7.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

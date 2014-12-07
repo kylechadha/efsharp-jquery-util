@@ -6,15 +6,17 @@ module.exports = function(app) {
   // ----------------------------------------------
   app.get('/siteinfo/:url', function(req, res) {
 
-    var url = req.params.url;
+    console.log('backend route hit');
 
-    scraper(url, function(error, data) {
-      if (error) {
-        res.send(error);
-      }
+    // var url = req.params.url;
 
-      res.json(data);
-    });
+    // scraper(url, function(error, data) {
+    //   if (error) {
+    //     res.send(error);
+    //   }
+
+    //   res.json(data);
+    // });
 
   });
   

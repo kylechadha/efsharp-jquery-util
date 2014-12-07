@@ -1,5 +1,4 @@
-var request    = require('request');
-var cheerio    = require('cheerio');
+var phantom = require('phantom');
 
 //
 // Scraper Service
@@ -13,7 +12,6 @@ module.exports = function(url, callback) {
 
       console.log('Response received. Scraper running.');
 
-      var $ = cheerio.load(html);
       var data = {};
 
 

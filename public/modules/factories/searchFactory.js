@@ -4,7 +4,7 @@
 
     return {
 
-      getSiteInfo: function(url, callback) {
+      checkVersion: function(url, callback) {
 
         $http.get('/siteinfo/' + encodeURIComponent(url))
           .success(function (data) {
