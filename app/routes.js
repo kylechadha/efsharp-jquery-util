@@ -1,4 +1,4 @@
-var scraper = require('./services/scraper')
+var phantomService = require('./services/phantomService')
 
 module.exports = function(app) {
 
@@ -6,17 +6,15 @@ module.exports = function(app) {
   // ----------------------------------------------
   app.get('/siteinfo/:url', function(req, res) {
 
-    console.log('backend route hit');
+    var url = req.params.url;
 
-    // var url = req.params.url;
+    phantomService(url, function(error, data) {
+      if (error) {
+        res.send(error);
+      }
 
-    // scraper(url, function(error, data) {
-    //   if (error) {
-    //     res.send(error);
-    //   }
-
-    //   res.json(data);
-    // });
+      res.json(data);
+    });
 
   });
   
