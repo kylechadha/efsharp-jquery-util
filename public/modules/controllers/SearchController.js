@@ -4,7 +4,7 @@
 
     // Reminder: Before you finish, pull the repo down from BitBucket in a clean folder and check everything (install scripts, phantomjs) etc., all work out of the box :)
 
-    $scope.siteURL = 'http://xkcd.com'
+    $scope.siteURL = 'http://'
 
     $scope.getSiteInfo = function() {
 
@@ -12,7 +12,7 @@
 
       if ($scope.siteURL) {
 
-        if (!$scope.siteURL.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
+        if (!$scope.siteURL.match(/^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
           $scope.errorMessage = 'Invalid URL!';
         }
         else {
@@ -23,8 +23,6 @@
 
             }
           });
-
-          $scope.siteURL = '';
 
         }
 

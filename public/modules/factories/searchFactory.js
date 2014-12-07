@@ -8,7 +8,6 @@
 
         $http.get('/siteinfo/' + encodeURIComponent(url))
           .success(function (data) {
-            $log.log('Success in Factory');
             $log.log(data);
             callback(null, data);
           })
