@@ -2,17 +2,23 @@
 <!-- Search View -->
 <div class="search">
 
-  <!-- Main Column -->
-  <div class="col-md-12 search__input">
-    <h1>Enter a URL.</h1>
+  <div class="col-sm-4 col-sm-offset-4">
+
+    <h1 class="search__header">Enter a URL</h1>
 
     <form role="form" ng-submit="getSiteInfo()">
       <div class="form-group">
-        <input type="text" ng-model="siteURL" class="form-control">
+        <input type="text" ng-model="siteURL" class="form-control" ng-keyup="validateURL()">
+        <i ng-show="validURL" class="fa fa-check"></i>
       </div>
     </form>
 
-    <h3>{{errorMessage}}</h3>
+    <h4>{{errorMessage}}</h3>
+
+    <div class="search__results">
+      
+    </div>
+    
   </div>
   
 </div>
