@@ -5,13 +5,15 @@
     // Reminder: Before you finish, pull the repo down from BitBucket in a clean folder and check everything (install scripts, phantomjs) etc., all work out of the box :)
     // And add comments
 
-    $scope.siteURL = 'http://'
+    $scope.siteURL = 'http://';
     $scope.validURL = false;
     $scope.showSpinner = false;
+    $scope.siteResults = [];
 
     $scope.validateURL = function() {
       if (!$scope.siteURL.match(/^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
         $scope.validURL = false;
+        $scope.statusMessage = '';
       }
       else {
         $scope.validURL = true;
@@ -23,22 +25,31 @@
 
       if ($scope.siteURL && $scope.validURL) {
 
-        $scope.searchResults = '';
         $scope.showSpinner = true;
+        $scope.statusMessage = 'Give us a second while we give them a ring...';
+        var currentURL = $scope.siteURL;
 
-        searchFactory.checkVersion($scope.siteURL, function(error, data) {
+        searchFactory.checkVersion(currentURL, function(error, data) {
           if (!error) {
-            $scope.searchResults = data.version;
+            $scope.statusMessage = 'That was easy.';
+            $scope.siteResults.push({
+              url: currentURL,
+              version: data.version
+            });
           }
           $scope.showSpinner = false;
         });
-        
+
       }
       else {
-        $scope.searchResults = '';
+        $scope.statusMessage = '';
         $scope.errorMessage = 'Whoops, that looks like an invalid URL.';
       }
 
+    }
+
+    $scope.deleteSite = function(site) {
+      $scope.siteResults.splice($scope.siteResults.indexOf(site), 1);
     }
 
   };

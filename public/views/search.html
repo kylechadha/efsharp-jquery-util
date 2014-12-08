@@ -2,33 +2,48 @@
 <!-- Search View -->
 <div class="search">
 
-  <div class="col-sm-4 col-sm-offset-4">
+  <div class="row">
+    <div class="search__input col-sm-4 col-sm-offset-4">
 
-    <h1 class="search__header">Hi there, enter a URL</h1>
+      <h1 class="search__input__header">Hi there, enter a URL</h1>
 
-    <form role="form" ng-submit="getSiteInfo()">
-      <div class="form-group">
-        <div class="input-group">
-          <input type="text" ng-model="siteURL" class="form-control" ng-keyup="validateURL()">
-          <div class="input-group-addon"><i ng-show="!validURL" class="fa fa-search search__icon--default"></i><i ng-show="validURL" class="fa fa-check search__icon--valid"></i></div>
+      <form role="form" ng-submit="getSiteInfo()">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" ng-model="siteURL" class="form-control" ng-keyup="validateURL()">
+            <div class="input-group-addon"><i ng-show="!validURL" class="fa fa-search search__icon--default"></i><i ng-show="validURL" class="fa fa-check search__icon--valid"></i></div>
+          </div>
+          <div class="form-icon"></div>
+
         </div>
-        <div class="form-icon"></div>
+      </form>
 
+      <div class="search__input__message">
+        <p class="search__input__message__error">{{errorMessage}}</p>
+        <p>{{statusMessage}}</p>
       </div>
-    </form>
 
-    <h4 class="search__error">{{errorMessage}}</h3>
-
-    <div class="search__results">
       <div ng-show="showSpinner" class="spinner">
-        <div class="cube1"></div>
-        <div class="cube2"></div>
-      </div>    
-      <div ng-show="searchResults">
-        {{searchResults}}
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
       </div>
-    </div>
 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="search__results col-sm-6 col-sm-offset-3">
+
+      <div class="search__flex flex slide-animation" ng-repeat="site in siteResults">
+        <div class="search__flex__url"><a href="{{site.url}}" target="_blank">{{site.url}}</a></div>
+        <div class="search__flex__version">{{site.version}}</div>
+        <div class="search__flex__delete"><span class="glyphicon glyphicon-remove delete" ng-click="deleteSite(site)"></span></div>
+      </div>
+
+    </div>
   </div>
   
 </div>
