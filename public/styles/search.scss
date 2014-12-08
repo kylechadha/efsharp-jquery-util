@@ -14,13 +14,18 @@
   // In lieu of @at-root directiver
   // .search__icon {
     .search__icon--default {
-      color: #c3002f;
+      color: #C30032;
     }
     .search__icon--valid {
       font-size: 15px;
-      color: #99C262;
+      color: lighten(#2a3542, 20%);
     }
   // }
+
+  .search__error {
+    color: #C30032;
+    margin-top: 20px;
+  }
 
   .search__results {
     font-size: 25px;

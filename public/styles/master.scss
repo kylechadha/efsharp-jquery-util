@@ -24,7 +24,7 @@ html, body {
 // Bootstrap Overrides
 // -----------------------------------
 .navbar-fresh {
-  background-color: #c3002f;
+  background-color: #C30032;
   border-radius: 0px;
   color: white;
   a {
@@ -37,10 +37,12 @@ html, body {
 
 .navbar-brand {
   font-weight: 300;
-  span {
-    font-size: 24px;
+  span,
+  i {
+    font-size: 26px;
+    margin-top: -4px;
     vertical-align: middle;
-    margin-right: 8px;
+    margin-right: 2px;
   }
 }
 
