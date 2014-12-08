@@ -16,7 +16,7 @@ module.exports = function(url, callback) {
         }
         else {
           page.evaluate(function() {
-            var jQueryVersion = typeof jQuery !== "undefined" ? jQuery.fn.jquery : 'jQuery is not used at this site';
+            var jQueryVersion = typeof jQuery !== "undefined" ? 'jQuery Version: ' + jQuery.fn.jquery : 'jQuery is not used at this site';
 
             return {
               version: jQueryVersion

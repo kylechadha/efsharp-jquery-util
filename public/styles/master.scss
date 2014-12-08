@@ -24,7 +24,7 @@ html, body {
 // Bootstrap Overrides
 // -----------------------------------
 .navbar-fresh {
-  background-color: #2a3542;
+  background-color: #c3002f;
   border-radius: 0px;
   color: white;
   a {
@@ -42,4 +42,14 @@ html, body {
     vertical-align: middle;
     margin-right: 8px;
   }
+}
+
+.footer-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  img {
+    // width: 80%;
+    // height: 80%;
+  }  
 }

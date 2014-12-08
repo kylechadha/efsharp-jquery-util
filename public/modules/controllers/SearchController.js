@@ -27,11 +27,12 @@
         $log.log('Sending URL to factory.')
         searchFactory.checkVersion($scope.siteURL, function(error, data) {
           if (!error) {
-            $scope.errorMessage = data.version;
+            $scope.searchResults = data.version;
           }
         });
       }
       else {
+        $scope.searchResults = '';
         $scope.errorMessage = 'Whoops, that looks like an invalid URL.';
       }
 

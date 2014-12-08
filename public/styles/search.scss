@@ -11,23 +11,19 @@
     margin-bottom: 20px;
   }
 
+  // In lieu of @at-root directiver
+  // .search__icon {
+    .search__icon--default {
+      color: #c3002f;
+    }
+    .search__icon--valid {
+      font-size: 15px;
+      color: #99C262;
+    }
+  // }
+
   .search__results {
-    margin: 20px 0 0 20px;
-    a {
-      display: block;
-      height: 100%;
-      width: 100%;
-      text-decoration: none;
-      &:hover {
-        color: white;
-      }
-    }
-    td {
-      &:hover {
-        cursor: pointer;
-        color: black;
-        background-color: #f1f2f7;
-      }
-    }
+    font-size: 25px;
+    margin-top: 40px;
   }
 }
