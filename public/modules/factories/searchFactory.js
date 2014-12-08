@@ -1,3 +1,7 @@
+//
+// SEARCH FACTORY
+// -----------------------------------
+
 (function() {
 
   var searchFactory = function($http, $log) {
@@ -6,6 +10,7 @@
 
       checkVersion: function(url, callback) {
 
+        // Hit the backend route to initiate phantomJS.
         $http.get('/siteinfo/' + encodeURIComponent(url))
           .success(function (data) {
             $log.log(data);

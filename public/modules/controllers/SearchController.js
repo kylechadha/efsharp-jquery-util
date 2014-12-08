@@ -1,15 +1,17 @@
+//
+// SEARCH CONTROLLER
+// -----------------------------------
+
 (function() {
 
   var SearchController = function($scope, $log, searchFactory) {
-
-    // Reminder: Before you finish, pull the repo down from BitBucket in a clean folder and check everything (install scripts, phantomjs) etc., all work out of the box :)
-    // And add comments
 
     $scope.siteURL = 'http://';
     $scope.validURL = false;
     $scope.showSpinner = false;
     $scope.siteResults = [];
 
+    // Validate the url string, requiring either http or https.
     $scope.validateURL = function() {
       if (!$scope.siteURL.match(/^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
         $scope.validURL = false;
@@ -23,13 +25,18 @@
 
     $scope.getSiteInfo = function() {
 
+      // Confirm that the url exists and is valid
       if ($scope.siteURL && $scope.validURL) {
 
+        // Show the spinner and statusMessage.
         $scope.showSpinner = true;
         $scope.statusMessage = 'Give us a second while we give them a ring...';
         var currentURL = $scope.siteURL;
 
+        // Use searchFactory to hit our backend route.
         searchFactory.checkVersion(currentURL, function(error, data) {
+
+          // If there are no errors, update the statusMessage and add the url and version to the $scope.siteResults array.
           if (!error) {
             $scope.statusMessage = 'That was easy.';
             $scope.siteResults.push({
@@ -37,10 +44,13 @@
               version: data.version
             });
           }
+
           $scope.showSpinner = false;
+
         });
 
       }
+      // If the url does not exist or is invalid, display an error message.
       else {
         $scope.statusMessage = '';
         $scope.errorMessage = 'Whoops, that looks like an invalid URL.';
@@ -48,6 +58,7 @@
 
     }
 
+    // Delete the requested site from the $scope.siteResults array.
     $scope.deleteSite = function(site) {
       $scope.siteResults.splice($scope.siteResults.indexOf(site), 1);
     }

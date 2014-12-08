@@ -1,12 +1,14 @@
 var phantom = require('phantom');
 
 //
-// Phantom Service
+// PHANTOM SERVICE
 // -----------------------------------
 
 module.exports = function(url, callback) {
 
-  phantom.create('--ssl-protocol=any', function (ph) {
+  // Initiate Phantom and set '--ssl-protocol=tlsv1' to switch from SSLv3 to TLSv1.
+  // Note: SSLv3 is disabled on many servers due to the POODLE vulnerability. More Info: http://stackoverflow.com/questions/12021578/phantomjs-failing-to-open-https-site/26417660#26417660
+  phantom.create('--ssl-protocol=tlsv1', function (ph) {
     ph.createPage(function(page) {
       page.open(url, function(status) {
 
@@ -15,9 +17,20 @@ module.exports = function(url, callback) {
           return ph.exit();
         }
         else {
-          page.evaluate(function() {
-            var jQueryVersion = typeof jQuery !== "undefined" ? 'jQuery Version: ' + jQuery.fn.jquery : 'jQuery is not used at this site';
 
+          // Evaluate the following function in the context of the page being opened.
+          page.evaluate(function() {
+            var jQueryVersion;
+
+            // Determine if jQuery is defined. If it is, evaluate the version number.
+            if (typeof jQuery !== "undefined") {
+              jQueryVersion = 'jQuery Version: ' + jQuery.fn.jquery;
+            }
+            else {
+              jQueryVersion = 'jQuery is not used at this site';
+            }
+
+            // Return the jQueryVersion in an object.
             return {
               version: jQueryVersion
             };

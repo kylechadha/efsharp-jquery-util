@@ -2,6 +2,7 @@
 // MASTER SCSS FILE
 // ----------------------------------
 
+
 // Import Statements
 // -----------------------------------
 @import 'search';
@@ -21,7 +22,7 @@ html, body {
   display: flex;
 }
 
-// Bootstrap Overrides
+// Bootstrap Overrides & Customs
 // -----------------------------------
 .navbar-fresh {
   background-color: #C30032;
@@ -30,7 +31,7 @@ html, body {
   a {
     color: white;
     &:hover {
-      color: skyblue;
+      color: white;
     }
   }
 }

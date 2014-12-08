@@ -7,7 +7,7 @@
   margin-top: 40px;
 
   .search__input {
-    height: 220px;
+    height: 230px;
 
     .search__input__header {
       font-size: 30px;
@@ -21,7 +21,8 @@
       }
       .search__icon--valid {
         font-size: 15px;
-        color: #0198E1;
+        color: #337ab7;
+        cursor: pointer;
       }
     // }
 
@@ -72,9 +73,8 @@
         width: 10%;
         span {
           cursor: pointer;
-          color: #2a3542;
           &:hover {
-            color: tomato;
+            color: #C30032;
           }
         }
       }

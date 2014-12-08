@@ -1,5 +1,9 @@
 var phantomService = require('./services/phantomService')
 
+//
+// ROUTES
+// -----------------------------------
+
 module.exports = function(app) {
 
   // Server Routes
@@ -8,6 +12,7 @@ module.exports = function(app) {
 
     var url = req.params.url;
 
+    // Use the Phantom Service to evaluate and return the requested url's jQuery version.
     phantomService(url, function(error, data) {
       if (error) {
         res.send(error);
@@ -18,11 +23,10 @@ module.exports = function(app) {
 
   });
   
-  // Front End Routes
+  // Index Route
   // ----------------------------------------------
-  // route to handle all angular requests
   app.get('*', function(req, res) {
-    res.sendfile('./public/views/index.html'); // load our index.html file
+    res.sendfile('./public/views/index.html');
   });
 
 };

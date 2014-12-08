@@ -1,3 +1,7 @@
+//
+// ANGULAR ROUTES
+// -----------------------------------
+
 (function() {
 
   angular.module('jqueryCheckApp')

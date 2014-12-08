@@ -1,5 +1,5 @@
 {
-  "name": "fresh-tomatoes",
+  "name": "efsharp-jquery-check",
   "main": "server.js",
   "private": "true",
   "dependencies": {
