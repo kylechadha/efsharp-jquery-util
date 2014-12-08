@@ -13,10 +13,14 @@ module.exports = function(url, callback) {
       page.open(url, function(status) {
 
         if (status === "fail") {
-          callback('Phantom was unable to reach the URL.');
+          data = {
+            version: 'Whoops, are you sure this domain exists?'
+          }
+          
+          callback(null, data);
           return ph.exit();
         }
-        else {
+        else if (status === "success") {
 
           // Evaluate the following function in the context of the page being opened.
           page.evaluate(function() {
@@ -38,6 +42,9 @@ module.exports = function(url, callback) {
             callback(null, data);
             return ph.exit();
           });
+        }
+        else {
+          callback('Phantom experienced an error.');
         }
         
       });
