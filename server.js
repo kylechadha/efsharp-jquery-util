@@ -22,7 +22,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Routes
 // ----------------------------------------------
-require('./app/routes.js')(app);
+require('./app/routes')(app);
 
 
 // Server

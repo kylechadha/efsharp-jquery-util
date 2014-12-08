@@ -25,6 +25,10 @@
       height: 60px;
       overflow: hidden;
       margin-bottom: 15px;
+      -webkit-box-align: center;
+      -webkit-flex-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
       align-items: center;
       background-color: whitesmoke;
       padding: 10px; }

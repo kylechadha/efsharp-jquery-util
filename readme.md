@@ -1,12 +1,15 @@
+Application Setup Instructions
+===========
+1. Ensure node and phantomjs are installed
+2. run 'npm install'
+3. run 'grunt'
+
+Note: Run tests with a timeout of at least 15000ms, ie: 'mocha spec/ --timeout 15000'
+
+
 The Problem
 ===========
 Create an HTML form that submits a URL from a text input to the server via AJAX. The server should then determine what version(s) of jQuery the site at that URL uses, if any. The client should then display the version(s) to the user, or a message saying "jQuery is not used at this site".
-
-Application Setup Instructions
------------
-1. Ensure node and phantomjs are installed.
-2. run 'npm install'
-3. run 'grunt'
 
 Guidelines
 -----------
