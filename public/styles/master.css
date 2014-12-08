@@ -89,12 +89,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-animation: cubemove 1.8s infinite ease-in-out;
-  animation: cubemove 1.8s infinite ease-in-out; }
+  -webkit-animation: cubemove 2.2s infinite ease-in-out;
+  animation: cubemove 2.2s infinite ease-in-out; }
 
 .cube2 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s; }
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s; }
 
 @-webkit-keyframes cubemove {
   25% {
